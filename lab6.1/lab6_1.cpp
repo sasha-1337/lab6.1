@@ -2,17 +2,17 @@
 #include <cmath>
 #include <iomanip>
 #include <Windows.h>
+#include <time.h>
 
 using namespace std;
 
-int Beside(int* r, const int s) 
+void Beside(int* r, const int s) 
 {
-	for (int i = 0; i < s; i++) {
-		if ((i % 2) || !(i % 7))
-			return 0;
-		else
-			return i;
+	for (int y = 0; y < s; y++) {
+		if (!(r[y] % 2) && (r[y] % 7))
+			cout <<  r[y] << " ";
 	}
+	cout << endl;
 }
 
 void Create(int* a, int size, const int Low, const int High) {
@@ -39,24 +39,11 @@ int main() {
 	int Low = 3;
 	int High = 92;
 
-
 	cout << " arr[]: " << endl;
 	Create(arr, size, Low, High);
 	Print(arr, size, 0);
-	Beside(arr, size);
-	
-	cout << " Ημ³νενθι arr[]: " << endl;
-	Print1(arr, size);
-		
-
+    cout << " Ημ³νενθι arr[]: " << endl; 
+    Beside(arr, size);
 	system("pause");
 	return 0;	
-}
-void Print1(int* a, const int size)
-{
-	for (int x = 3; x < size; x++) {
-			
-			cout << setw(4) << Beside(a, size) << " ";
-	}
-		cout << endl;
 }
