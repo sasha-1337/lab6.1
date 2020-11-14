@@ -6,15 +6,21 @@
 
 using namespace std;
 
-void Beside(int* r, const int s) 
+int Beside(int* r, const int s) 
 {
+	int S = 0; // Cума
+	int t = 0; // Кількість
 	for (int y = 0; y < s; y++) {
-		if (!(r[y] % 2) && (r[y] % 7))
-			cout <<  r[y] << " ";
+		if (!(r[y] % 2) && (r[y] % 7)) {
+			cout << r[y] << " ";
+			S += r[y];
+			t++;
+		}
 	}
-	cout << endl;
+	cout << " Кількість: " << t << endl;
+	return S;
 }
-
+	
 void Create(int* a, int size, const int Low, const int High) {
 	for (int i = 0; i < size; i++)
 		a[i] = Low + rand() % (High - Low + 1);
@@ -42,8 +48,10 @@ int main() {
 	cout << " arr[]: " << endl;
 	Create(arr, size, Low, High);
 	Print(arr, size, 0);
-    cout << " Змінений arr[]: " << endl; 
-    Beside(arr, size);
+
+	cout << " Сума arr[]: " << Beside(arr, size) << " ";
+	cout << endl;
+  
 	system("pause");
 	return 0;	
 }
